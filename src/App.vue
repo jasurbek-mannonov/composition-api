@@ -43,8 +43,8 @@ async function handleSearch() {
   <el-table :data="store.users" height="90vh">
     <el-table-column label="ID" prop="id" width="100px" />
     <el-table-column label="Name" prop="name" width="150px" />
-    <el-table-column label="Email" prop="email" width="180px"/>
-    <el-table-column label="Address">
+    <el-table-column label="Email" prop="email" width="200px"/>
+    <el-table-column label="Address" width="400px">
   <template #default="{ row }">
     <div style="display: flex; align-items: center; margin-right: 20px;">
       <span style="margin-left: 10px">{{ row.address.street }}</span>
@@ -54,9 +54,18 @@ async function handleSearch() {
     </div>
   </template>
 </el-table-column>
+    <el-table-column label="Phone" prop="phone" width="200px"/>
+    <el-table-column label="Website" prop="website" width="100px"/>
+    <el-table-column label="Company">
+  <template #default="{ row }">
+    <div style="display: flex; align-items: center; margin-right: 20px;">
+      <span style="margin-left: 10px">{{ row.company.name }}</span>
+      <span style="margin-left: 10px">{{ row.company.catchPhrase }}</span>
+      <span style="margin-left: 10px">{{ row.company.bs }}</span>
+    </div>
+  </template>
+</el-table-column>
 
-    <el-table-column label="Phone" prop="phone" />
-    <el-table-column label="Website" prop="website" />
   </el-table>
   <el-pagination
     :total="total"
